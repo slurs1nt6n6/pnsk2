@@ -72,7 +72,7 @@ Vue.component('newCard', {
     
         <form class="row" @submit.prevent="Submit">
         
-            <p class="main_text">Заметки</p>
+            <p class="main_text">ЗАМЕТКИ</p>
         <div class="form_control">
                 
             <div class="form_name">

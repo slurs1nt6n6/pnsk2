@@ -11,6 +11,56 @@ body {
     width: 33.33%;
     padding: 10px;
     height: auto;
-    background: #292832;
+    background: #c6e3dd;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.main_text {
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #855c7c;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    color: #E55A3C;
+}
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        color: #E55A3C;
+    }
+}
+
+.card {
+    border: 2px solid #d0c1ee;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.form_control {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.form_control input[type="text"] {
+    height: 40px;
+    width: 300px;
+    padding-left: 10px;
+    margin: 6px;
+    background: #fabbeb;
+}
+.error {
+    background-color: #292832;
+    padding: 20px 30px;
+    color: #e87c7c;
+    font-size: 17px;
+    line-height: 20px;
     text-align: center;
 }
