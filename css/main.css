@@ -8,12 +8,15 @@ body {
 }
 .column {
     float: left;
-    width: 33.33%;
+    width: 22.4%;
     padding: 10px;
     height: auto;
-    background: #c6e3dd;
+    position: relative;
+    left: 300px;
+    background: #fabbeb;
     text-align: center;
     border-radius: 5px;
+
 }
 
 .main_text {
@@ -47,6 +50,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
+    left:300px;
 }
 
 .form_control input[type="text"] {
@@ -55,12 +59,28 @@ body {
     padding-left: 10px;
     margin: 6px;
     background: #fabbeb;
+    border-radius: 5px  ;
 }
 .error {
-    background-color: #292832;
     padding: 20px 30px;
     color: #e87c7c;
     font-size: 17px;
     line-height: 20px;
     text-align: center;
 }
+.sub {
+    display: flex;
+    justify-content: center;
+}
+
+.sub input[type="submit"] {
+    width: 300px;
+
+    background: #fabbeb;
+    height: 40px;
+    color: #e87c7c;
+    border-radius: 10px;
+    font-size: 20px;
+
+}
+
