@@ -4,5 +4,13 @@
 }
 
 body {
+    background: #f6dfdf;
+}
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: auto;
     background: #292832;
+    text-align: center;
 }

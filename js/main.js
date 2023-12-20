@@ -65,3 +65,74 @@ Vue.component('column', {
 
     }
 })
+
+Vue.component('newCard', {
+    template: `
+    <section id="main" class="main-alt">
+    
+        <form class="row" @submit.prevent="Submit">
+        
+            <p class="main_text">Заметки</p>
+        <div class="form_control">
+                
+            <div class="form_name">
+                <input required type="text" v-model="name" id="name" placeholder="Введите название заметки"/>
+            </div>
+            
+            <input required type="text"  v-model="point_1" placeholder="Первый пункт"/>
+
+            <input required type="text"  v-model="point_2" placeholder="Второй пункт"/>
+
+            <input required type="text"  v-model="point_3" placeholder="Третий пункт"/> 
+
+            <input required type="text"  v-model="point_4"  placeholder="Четвертый пункт"/>
+
+             <input required type="text" v-model="point_5"  placeholder="Пятый пункт"/>
+        </div>
+        <div>                    
+                <p class="sub">
+                        <input type="submit" value="Отправить"> 
+                </p>
+            </div>
+        </form>
+    </section>
+    `,
+    data() {
+        return {
+            name: null,
+            point_1: null,
+            point_2: null,
+            point_3: null,
+            point_4: null,
+            point_5: null,
+            date: null,
+        }
+    },
+    methods: {
+
+        Submit() {
+            let card = {
+                name: this.name,
+                points: [
+                    {name: this.point_1, completed: false},
+                    {name: this.point_2, completed: false},
+                    {name: this.point_3, completed: false},
+                    {name: this.point_4, completed: false},
+                    {name: this.point_5, completed: false}
+                ],
+                date: null,
+                // date: null,
+                status: 0,
+                errors: [],
+            }
+            eventBus.$emit('addColumn_1', card)
+            this.name = null;
+            this.point_1 = null
+            this.point_2 = null
+            this.point_3 = null
+            this.point_4 = null
+            this.point_5 = null
+        }
+    }
+
+})
