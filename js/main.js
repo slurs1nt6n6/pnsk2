@@ -186,6 +186,47 @@ Vue.component('column_1', {
         },
     },
 })
+Vue.component('column_2', {
+    template: `
+        <section id="main" class="main-alt">
+            <div class="column column_two">
+                <div class="card" v-for="card in column_2">
+                <h3>{{ card.name }}</h3>
+                    <div class="tasks" v-for="task in card.points"
+                        v-if="task.name != null"
+                        @click="TaskCompleted(card, task)"
+                        :class="{completed: task.completed}">
+                        {{ task.name }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    `,
+    props: {
+        column_2: {
+            type: Array,
+        },
+        card: {
+            type: Object,
+        },
+    },
+    methods: {
+        TaskCompleted(ColumnCard, task) {
+            JSON.parse(localStorage.getItem("column_2"))
+            task.completed = true
+            ColumnCard.status += 1
+            localStorage.setItem('column_2', JSON.stringify(this.column_2))
+            let count = 0
+            for(let i = 0; i < 5; i++){
+                count++
+            }
+            if (( ColumnCard.status / count) * 100 >= 100) {
+                eventBus.$emit('addColumn_3', ColumnCard)
+                ColumnCard.date = new Date().toLocaleString()
+            }
+        }
+    }
+})
 
 
 let app = new Vue({
