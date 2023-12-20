@@ -228,6 +228,33 @@ Vue.component('column_2', {
     }
 })
 
+Vue.component('column_3', {
+    template: `
+        <section id="main" class="main-alt">
+            <div class="column column_three">
+                <div class="card" v-for="card in column_3">
+                <h3>{{ card.name }}</h3>
+                    <div class="tasks" v-for="task in card.points"
+                        v-if="task.name != null"
+                        @click="TaskCompleted(card, task)"
+                        :class="{completed: task.completed}">
+                        {{ task.name }}
+                    </div>
+                        <p>{{ card.date }}</p>
+                </div>
+            </div>
+        </section>
+    `,
+    props: {
+        column_3: {
+            type: Array,
+        },
+        card: {
+            type: Object,
+        },
+    },
+})
+
 
 let app = new Vue({
     el: '#app',
