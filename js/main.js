@@ -84,6 +84,11 @@ Vue.component('newCard', {
             <input required type="text"  v-model="point_2" placeholder="Второй пункт"/>
 
             <input required type="text"  v-model="point_3" placeholder="Третий пункт"/> 
+             
+            <input  type="text"  v-model="point_4" placeholder="Четвертый пункт"/> 
+
+            <input  type="text"  v-model="point_5" placeholder="Пятый пункт"/> 
+
 
         </div>
         <div>                    
@@ -91,6 +96,7 @@ Vue.component('newCard', {
                         <input type="submit" value="Отправить"> 
                 </p>
             </div>
+            <p v-if="errorMessage" class ="error-message">{{errorMessage}}</p>
         </form>
     </section>
     `,
@@ -100,6 +106,9 @@ Vue.component('newCard', {
             point_1: null,
             point_2: null,
             point_3: null,
+            point_4: null,
+            point_5: null,
+            errorMessage:'',
 
             date: null,
         }
@@ -107,16 +116,22 @@ Vue.component('newCard', {
     methods: {
 
         Submit() {
+            if (!this.name.trim() || !this.point_1.trim() || !this.point_2.trim() || !this.point_3.trim()) {
+                this.errorMessage = 'Заполните все обязательные поля';
+                return;
+            }
             let card = {
                 name: this.name,
                 points: [
                     {name: this.point_1, completed: false},
                     {name: this.point_2, completed: false},
                     {name: this.point_3, completed: false},
+                    {name: this.point_4, completed: false},
+                    {name: this.point_5, completed: false},
 
                 ],
                 date: null,
-                // date: null,
+// date: null,
                 status: 0,
                 errors: [],
             }
